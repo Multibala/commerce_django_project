@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+    {% for product in products %}
+    <div>
+        <hr>
+        <h2>Listing :{{product.name}}</h2>
+        <p>{{product.description}}</p>
+        <h3>{{product.price}}</h3>
+        <form method="post">
+            {%csrf_token %}
+        <input type="text" placeholder="Bid" name = 'bid'>
+        <p></p>
+        <input type="submit" value = 'Place bid' name="submit">
+
+        </form>
+    </div>
+    {% endfor %}
+{% endblock %}
